@@ -1,0 +1,2060 @@
+
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<!--<html>-->
+<h3>&nbsp;
+    创建外键索引语句:
+</h3>
+
+<pre style="padding: 20px; display: block; background: #d5d5d5;font-size: 12px">
+;
+ALTER TABLE paiban ADD FOREIGN KEY (yishengid) REFERENCES yisheng(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE yuyueguahao ADD FOREIGN KEY (paibanid) REFERENCES paiban(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE yuyueguahao ADD FOREIGN KEY (yishengid) REFERENCES yisheng(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE xinlizhenliaofangan ADD FOREIGN KEY (yuyueguahaoid) REFERENCES yuyueguahao(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE xinlizhenliaofangan ADD FOREIGN KEY (paibanid) REFERENCES paiban(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE xinlizhenliaofangan ADD FOREIGN KEY (yishengid) REFERENCES yisheng(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE shiti ADD FOREIGN KEY (shijuanid) REFERENCES shijuan(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE jieguo ADD FOREIGN KEY (shijuanid) REFERENCES shijuan(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE chengji ADD FOREIGN KEY (shijuanid) REFERENCES shijuan(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE liuyanban ADD FOREIGN KEY (yishengid) REFERENCES yisheng(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE tongzhi ADD FOREIGN KEY (yonghu) REFERENCES yonghu(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE yaopin ADD FOREIGN KEY (fenlei) REFERENCES leibie(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE gouwuche ADD FOREIGN KEY (yaopinid) REFERENCES yaopin(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE gouwuche ADD FOREIGN KEY (fenlei) REFERENCES leibie(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE dingdan ADD FOREIGN KEY (shouhuoxinxi) REFERENCES shouhuodizhi(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE dingdanshangpin ADD FOREIGN KEY (dingdanid) REFERENCES dingdan(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE dingdanshangpin ADD FOREIGN KEY (yaopinid) REFERENCES yaopin(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE dingdanshangpin ADD FOREIGN KEY (fenlei) REFERENCES leibie(id) ON UPDATE CASCADE ON DELETE CASCADE</pre>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【管理员】模块,表名：<span style="color: #990000">admins</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>username</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>帐号 </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>pwd</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>密码 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【医生】模块,表名：<span style="color: #990000">yisheng</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>zhanghao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>账号 </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>mima</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>密码 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>xingming</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>姓名 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>zhicheng</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>职称 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>youxiang</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>邮箱 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>shouji</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>手机 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>zhaopian</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>照片 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>jianjie</td>
+        <td>longtext</td>
+        <td></td>
+        <td></td>
+        <td>简介 </td>
+    </tr>
+        <tr>
+        <td>10</td>
+        <td>openid</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>openid </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【排班】模块,表名：<span style="color: #990000">paiban</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>yishengid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>医生id </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>zhanghao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>账号 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>xingming</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>姓名 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>zhicheng</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>职称 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>shangbanshijian</td>
+        <td>varchar</td>
+        <td>25</td>
+        <td></td>
+        <td>上班时间 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>xiabanshijian</td>
+        <td>varchar</td>
+        <td>25</td>
+        <td></td>
+        <td>下班时间 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：yishengid ，
+                关联表【yisheng】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【轮播图】模块,表名：<span style="color: #990000">lunbotu</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>image</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>图片 </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>url</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>连接地址 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【预约挂号】模块,表名：<span style="color: #990000">yuyueguahao</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>paibanid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>排班id </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>yishengid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>医生id </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>zhanghao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>账号 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>xingming</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>姓名 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>zhicheng</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>职称 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>shijianyuyue</td>
+        <td>varchar</td>
+        <td>25</td>
+        <td></td>
+        <td>时间预约 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>huanzhexingming</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>患者姓名 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>nianling</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>年龄 </td>
+    </tr>
+        <tr>
+        <td>10</td>
+        <td>shouji</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>手机 </td>
+    </tr>
+        <tr>
+        <td>11</td>
+        <td>beizhu</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>备注 </td>
+    </tr>
+        <tr>
+        <td>12</td>
+        <td>guahaoren</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>挂号人 </td>
+    </tr>
+        <tr>
+        <td>13</td>
+        <td>zhuangtai</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>状态 </td>
+    </tr>
+        <tr>
+        <td>14</td>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td></td>
+        <td></td>
+        <td>挂号时间 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：paibanid ，
+                关联表【paiban】中字段id            </td>
+        </tr>
+                            <tr>
+            <td colspan="6">
+                设置索引，
+                字段：yishengid ，
+                关联表【yisheng】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【心理诊疗方案】模块,表名：<span style="color: #990000">xinlizhenliaofangan</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>yuyueguahaoid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>预约挂号id </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>paibanid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>排班id </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>yishengid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>医生id </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>zhanghao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>账号 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>xingming</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>姓名 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>zhicheng</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>职称 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>huanzhexingming</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>患者姓名 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>nianling</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>年龄 </td>
+    </tr>
+        <tr>
+        <td>10</td>
+        <td>guahaoren</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>挂号人 </td>
+    </tr>
+        <tr>
+        <td>11</td>
+        <td>zhenliaofangan</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>诊疗方案 </td>
+    </tr>
+        <tr>
+        <td>12</td>
+        <td>chufang</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>处方 </td>
+    </tr>
+        <tr>
+        <td>13</td>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td></td>
+        <td></td>
+        <td>添加时间 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：yuyueguahaoid ，
+                关联表【yuyueguahao】中字段id            </td>
+        </tr>
+                            <tr>
+            <td colspan="6">
+                设置索引，
+                字段：paibanid ，
+                关联表【paiban】中字段id            </td>
+        </tr>
+                            <tr>
+            <td colspan="6">
+                设置索引，
+                字段：yishengid ，
+                关联表【yisheng】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【用户】模块,表名：<span style="color: #990000">yonghu</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>zhanghao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>账号 </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>mima</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>密码 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>xingming</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>姓名 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>xingbie</td>
+        <td>varchar</td>
+        <td>10</td>
+        <td></td>
+        <td>性别 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>shouji</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>手机 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>jifen</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>积分 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>shenfenzhenghao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>身份证号 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>shengao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>身高 </td>
+    </tr>
+        <tr>
+        <td>10</td>
+        <td>tizhong</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>体重 </td>
+    </tr>
+        <tr>
+        <td>11</td>
+        <td>hunyinzhuangkuang</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>婚姻状况 </td>
+    </tr>
+        <tr>
+        <td>12</td>
+        <td>minzu</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>民族 </td>
+    </tr>
+        <tr>
+        <td>13</td>
+        <td>xianbingshi</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>现病史 </td>
+    </tr>
+        <tr>
+        <td>14</td>
+        <td>jiwangbingshi</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>既往病史 </td>
+    </tr>
+        <tr>
+        <td>15</td>
+        <td>jiazubingshi</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>家族病史 </td>
+    </tr>
+        <tr>
+        <td>16</td>
+        <td>touxiang</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>头像 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【试卷】模块,表名：<span style="color: #990000">shijuan</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>shijuanbianhao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>试卷编号 </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>shijuanmingcheng</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>试卷名称 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>datileixing</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>答题类型 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>tupian</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>图片 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>shichang</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>时长 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>shijuanjianjie</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>试卷简介 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>faburen</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>发布人 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【试题】模块,表名：<span style="color: #990000">shiti</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>shijuanid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>试卷id </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>shijuanbianhao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>试卷编号 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>shijuanmingcheng</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>试卷名称 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>faburen</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>发布人 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>shititimu</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>试题题目 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>leixing</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>类型 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>daan</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>答案 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：shijuanid ，
+                关联表【shijuan】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【结果】模块,表名：<span style="color: #990000">jieguo</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>shijuanid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>试卷id </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>shijuanbianhao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>试卷编号 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>shijuanmingcheng</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>试卷名称 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>faburen</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>发布人 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>datileixing</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>答题类型 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>kaoshibianhao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>考试编号 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>shititimu</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>试题题目 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>leixing</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>类型 </td>
+    </tr>
+        <tr>
+        <td>10</td>
+        <td>daan</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>答案 </td>
+    </tr>
+        <tr>
+        <td>11</td>
+        <td>defen</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>得分 </td>
+    </tr>
+        <tr>
+        <td>12</td>
+        <td>zimu</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>字母 </td>
+    </tr>
+        <tr>
+        <td>13</td>
+        <td>datiren</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>答题人 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：shijuanid ，
+                关联表【shijuan】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【成绩】模块,表名：<span style="color: #990000">chengji</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>shijuanid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>试卷id </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>shijuanbianhao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>试卷编号 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>shijuanmingcheng</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>试卷名称 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>faburen</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>发布人 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>datileixing</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>答题类型 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>kaoshibianhao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>考试编号 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>zongdefen</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>总得分 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>datiren</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>答题人 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：shijuanid ，
+                关联表【shijuan】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【文章】模块,表名：<span style="color: #990000">wenzhang</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>biaoti</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>标题 </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>tupian</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>图片 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>dianjiliang</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>点击量 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>xiangqing</td>
+        <td>longtext</td>
+        <td></td>
+        <td></td>
+        <td>详情 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>tianjiaren</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>添加人 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【留言板】模块,表名：<span style="color: #990000">liuyanban</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>yishengid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>医生id </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>zhanghao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>账号 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>xingming</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>姓名 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>zixunrenxingming</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>咨询人姓名 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>lianxidianhua</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>联系电话 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>liuyanneirong</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>留言内容 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>liuyanren</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>留言人 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>huifuneirong</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>回复内容 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：yishengid ，
+                关联表【yisheng】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【通知】模块,表名：<span style="color: #990000">tongzhi</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>yonghu</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>用户ID </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>zhanghao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>账号 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>xingming</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>姓名 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>tongzhineirong</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>通知内容 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td></td>
+        <td></td>
+        <td>添加时间 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：yonghu ，
+                关联表【yonghu】中的id 字段            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【个人健康数据】模块,表名：<span style="color: #990000">gerenjiankangshuju</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>xingming</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>姓名 </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>xingbie</td>
+        <td>varchar</td>
+        <td>10</td>
+        <td></td>
+        <td>性别 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>shengao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>身高 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>tizhong</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>体重 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>riqi</td>
+        <td>varchar</td>
+        <td>25</td>
+        <td></td>
+        <td>日期 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>shuzhangya</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>舒张压 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>shousuoya</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>收缩压 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>xueya</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>血压 </td>
+    </tr>
+        <tr>
+        <td>10</td>
+        <td>xuetang</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>血糖 </td>
+    </tr>
+        <tr>
+        <td>11</td>
+        <td>xinlv</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>心率 </td>
+    </tr>
+        <tr>
+        <td>12</td>
+        <td>beizhu</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>备注 </td>
+    </tr>
+        <tr>
+        <td>13</td>
+        <td>yonghu</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>用户 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【类别】模块,表名：<span style="color: #990000">leibie</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>leibiemingcheng</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>类别名称 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【药品】模块,表名：<span style="color: #990000">yaopin</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>bianhao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>编号 </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>mingcheng</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>名称 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>tupian</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>图片 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>fenlei</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>分类 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>jiage</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>价格 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>kucun</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>库存 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>xiaoliang</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>销量 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>yaopinxiangqing</td>
+        <td>longtext</td>
+        <td></td>
+        <td></td>
+        <td>药品详情 </td>
+    </tr>
+        <tr>
+        <td>10</td>
+        <td>tianjiaren</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>添加人 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：fenlei ，
+                关联表【leibie】中的id 字段            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【购物车】模块,表名：<span style="color: #990000">gouwuche</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>yaopinid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>药品id </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>bianhao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>编号 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>mingcheng</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>名称 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>fenlei</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>分类 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>jiage</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>价格 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>tupian</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>图片 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>goumaishu</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>购买数 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>xiaoji</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>小计 </td>
+    </tr>
+        <tr>
+        <td>10</td>
+        <td>goumairen</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>购买人 </td>
+    </tr>
+        <tr>
+        <td>11</td>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td></td>
+        <td></td>
+        <td>添加时间 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：yaopinid ，
+                关联表【yaopin】中字段id            </td>
+        </tr>
+                            <tr>
+            <td colspan="6">
+                设置索引，
+                字段：fenlei ，
+                关联表【leibie】中的id 字段            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【订单】模块,表名：<span style="color: #990000">dingdan</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>dingdanhao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>订单号 </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>dingdanjine</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>订单金额 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>shouhuoxinxi</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>收货信息ID </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>shouhuoren</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>收货人 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>shouji</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>手机 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>dizhi</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>地址 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>beizhu</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>备注 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>zhuangtai</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>状态 </td>
+    </tr>
+        <tr>
+        <td>10</td>
+        <td>xiadanren</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>下单人 </td>
+    </tr>
+        <tr>
+        <td>11</td>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td></td>
+        <td></td>
+        <td>添加时间 </td>
+    </tr>
+        <tr>
+        <td>12</td>
+        <td>iszf</td>
+        <td>varchar</td>
+        <td>10</td>
+        <td></td>
+        <td>是否支付 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：shouhuoxinxi ，
+                关联表【shouhuodizhi】中的id 字段            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【收货地址】模块,表名：<span style="color: #990000">shouhuodizhi</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>shouhuoren</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>收货人 </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>shouji</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>手机 </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>dizhi</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>地址 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>tianjiaren</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>添加人 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="6" bgcolor="#DEDEDE">
+            【订单商品】模块,表名：<span style="color: #990000">dingdanshangpin</span>
+        </td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>字段名</td>
+        <td>类型</td>
+        <td>长度</td>
+        <td>主键</td>
+        <td>描述</td>
+    </tr>
+        <tr>
+        <td>1</td>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+        <td>是</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>dingdanid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>订单id </td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>yaopinid</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>药品id </td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>bianhao</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>编号 </td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>mingcheng</td>
+        <td>varchar</td>
+        <td>255</td>
+        <td></td>
+        <td>名称 </td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>fenlei</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>分类 </td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>jiage</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>价格 </td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>tupian</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+        <td>图片 </td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>goumaishu</td>
+        <td>int</td>
+        <td></td>
+        <td></td>
+        <td>购买数 </td>
+    </tr>
+        <tr>
+        <td>10</td>
+        <td>xiaoji</td>
+        <td>decimal(10, 2)</td>
+        <td></td>
+        <td></td>
+        <td>小计 </td>
+    </tr>
+        <tr>
+        <td>11</td>
+        <td>goumairen</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td></td>
+        <td>购买人 </td>
+    </tr>
+        <tr>
+        <td>12</td>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td></td>
+        <td></td>
+        <td>添加时间 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="6">
+                设置索引，
+                字段：dingdanid ，
+                关联表【dingdan】中的id 字段            </td>
+        </tr>
+                            <tr>
+            <td colspan="6">
+                设置索引，
+                字段：yaopinid ，
+                关联表【yaopin】中的id 字段            </td>
+        </tr>
+                            <tr>
+            <td colspan="6">
+                设置索引，
+                字段：fenlei ，
+                关联表【leibie】中的id 字段            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+
+
+</html>
